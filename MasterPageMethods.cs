@@ -4,7 +4,7 @@
 
     using Microsoft.SharePoint;
 
-    public static class SPFeatureReceiverPropertiesExtensions
+    public static class MasterPageMethods
     {
         public static void SetMasterPage(this SPFeatureReceiverProperties properties)
         {
