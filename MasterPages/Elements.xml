@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="MasterPages" List="116" Url="_catalogs/masterpage">
+    <File Path="MasterPages\_starter_publishing.master" Url="_starter_publishing.master" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="MasterPages\_starter_foundation.master" Url="_starter_foundation.master" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="MasterPages\_starter_meetingworkspace.master" Url="_starter_meetingworkspace.master" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="MasterPages\_starter_mysitehost.master" Url="_starter_mysitehost.master" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="MasterPages\_starter.master" Url="_starter.master" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+  </Module>
+</Elements>

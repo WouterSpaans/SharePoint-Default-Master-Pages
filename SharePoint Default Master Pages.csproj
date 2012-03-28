@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60C07C59-461A-4F8E-8198-4875DF4A952F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharePoint_Default_Master_Pages</RootNamespace>
+    <AssemblyName>SharePoint Default Master Pages</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\Activate_starter.master\Activate_starter.EventReceiver.cs">
+      <DependentUpon>Activate_starter.master.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Activate_starter_foundation.master\Activate_starter_foundation.EventReceiver.cs">
+      <DependentUpon>Activate_starter_foundation.master.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Activate_starter_meetingworkspace.master\Activate_starter_meetingworkspace.EventReceiver.cs">
+      <DependentUpon>Activate_starter_meetingworkspace.master.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Activate_starter_mysitehost.master\Activate_starter_mysitehost.EventReceiver.cs">
+      <DependentUpon>Activate_starter_mysitehost.master.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Activate_starter_publishing.master\Activate_starter_publishing.EventReceiver.cs">
+      <DependentUpon>Activate_starter_publishing.master.feature</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPageMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\DeployMasterPages\DeployMasterPages.feature">
+      <FeatureId>{4cf9034b-87a6-4797-b707-1b7389a7450b}</FeatureId>
+    </None>
+    <None Include="Features\Activate_starter_mysitehost.master\Activate_starter_mysitehost.master.feature">
+      <FeatureId>{d61dcf68-8a12-496e-bd88-b8f8d55e0cdc}</FeatureId>
+    </None>
+    <None Include="Features\Activate_starter_publishing.master\Activate_starter_publishing.master.feature">
+      <FeatureId>{0833c983-1ff0-43d3-85d7-d43fde236d2f}</FeatureId>
+    </None>
+    <None Include="Features\Activate_starter_meetingworkspace.master\Activate_starter_meetingworkspace.master.feature">
+      <FeatureId>{1b95a107-fcba-47db-8544-c1073fae3357}</FeatureId>
+    </None>
+    <None Include="Features\Activate_starter_foundation.master\Activate_starter_foundation.master.feature">
+      <FeatureId>{c22085e8-13d0-41a9-9fe5-c293bed38de3}</FeatureId>
+    </None>
+    <None Include="Features\Activate_starter.master\Activate_starter.master.feature">
+      <FeatureId>{728b5a84-1762-4084-9e6e-4d0ea4a821b0}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="MasterPages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{944f4f8f-56ca-4843-a59a-ff95d236baf5}</SharePointProjectItemId>
+    </None>
+    <None Include="MasterPages\_starter.master" />
+    <None Include="MasterPages\_starter_foundation.master" />
+    <None Include="MasterPages\_starter_meetingworkspace.master" />
+    <None Include="MasterPages\_starter_mysitehost.master" />
+    <None Include="MasterPages\_starter_publishing.master" />
+    <None Include="Package\Package.package">
+      <PackageId>{86e92874-d22d-4995-be80-bca6902d8db6}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\DeployMasterPages\DeployMasterPages.Template.xml">
+      <DependentUpon>DeployMasterPages.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Activate_starter_mysitehost.master\Activate_starter_mysitehost.master.Template.xml">
+      <DependentUpon>Activate_starter_mysitehost.master.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Activate_starter_publishing.master\Activate_starter_publishing.master.Template.xml">
+      <DependentUpon>Activate_starter_publishing.master.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Activate_starter_meetingworkspace.master\Activate_starter_meetingworkspace.master.Template.xml">
+      <DependentUpon>Activate_starter_meetingworkspace.master.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Activate_starter_foundation.master\Activate_starter_foundation.master.Template.xml">
+      <DependentUpon>Activate_starter_foundation.master.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Activate_starter.master\Activate_starter.master.Template.xml">
+      <DependentUpon>Activate_starter.master.feature</DependentUpon>
+    </Content>
+    <Content Include="MasterPages\Elements.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
+</Project>
