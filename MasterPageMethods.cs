@@ -4,20 +4,30 @@
 
     using Microsoft.SharePoint;
 
-    public class MasterPageMethods
+    public static class SPFeatureReceiverPropertiesExtensions
     {
-        public static void SetDefaultMasterPage(SPFeatureReceiverProperties properties)
+        public static void SetMasterPage(this SPFeatureReceiverProperties properties)
         {
-            SetMasterPage(properties, "/_catalogs/masterpage/v4.master");
+            properties.SetMasterPage("/_catalogs/masterpage/v4.master");
         }
 
-        public static void SetMasterPage(SPFeatureReceiverProperties properties, string url)
+        public static void SetMasterPage(this SPFeatureReceiverProperties properties, string url)
         {
-            SPSite curSite = (SPSite)properties.Feature.Parent;
-            SPWeb curWeb = curSite.RootWeb;
-            Uri masterUri = new Uri(curWeb.Url + url);
+            properties.SetMasterPage(url, true);
+        }
+
+        public static void SetMasterPage(this SPFeatureReceiverProperties properties, string url, bool setCustomMasterUrl)
+        {
+            var curSite = (SPSite)properties.Feature.Parent;
+            var curWeb = curSite.RootWeb;
+            var masterUri = new Uri(curWeb.Url + url);
+
             curWeb.MasterUrl = masterUri.AbsolutePath;
-            curWeb.CustomMasterUrl = masterUri.AbsolutePath;
+            if (setCustomMasterUrl)
+            {
+                curWeb.CustomMasterUrl = masterUri.AbsolutePath;
+            }
+
             curWeb.Update();
         }
     }

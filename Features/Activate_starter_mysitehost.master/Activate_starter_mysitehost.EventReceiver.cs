@@ -16,12 +16,12 @@ namespace SharePoint_Default_Master_Pages.Features.Activate_starter_mysitehost.m
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            MasterPageMethods.SetMasterPage(properties, "/_catalogs/masterpage/_starter_mysitehost.master");
+            properties.SetMasterPage("/_catalogs/masterpage/_starter_mysitehost.master");
         }
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            MasterPageMethods.SetDefaultMasterPage(properties);
+            properties.SetMasterPage();
         }
     }
 }

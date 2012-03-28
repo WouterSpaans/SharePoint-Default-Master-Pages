@@ -16,12 +16,12 @@ namespace SharePoint_Default_Master_Pages.Features.Activate_starter_meetingworks
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            MasterPageMethods.SetMasterPage(properties, "/_catalogs/masterpage/_starter_meetingworkspace.master");
+            properties.SetMasterPage("/_catalogs/masterpage/_starter_meetingworkspace.master");
         }
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            MasterPageMethods.SetDefaultMasterPage(properties);
+            properties.SetMasterPage();
         }
     }
 }
